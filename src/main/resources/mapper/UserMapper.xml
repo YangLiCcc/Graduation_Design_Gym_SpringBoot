@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yang.springboot.mapper.UserDao">
+
+    <select id="getRoleByUserId" resultType="com.yang.springboot.entity.Role">
+        SELECT r.name, r.type
+        FROM `sys_user` as u, `sys_role` as r
+        WHERE r.id = u.role_id
+        AND u.id = #{userId}
+    </select>
+</mapper>
