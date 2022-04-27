@@ -44,6 +44,18 @@ public class Repair implements Serializable {
     private String type;
 
     /**
+     * 提交时间
+     */
+    @TableField("submit_time")
+    private LocalDateTime submitTime;
+
+    /**
+     * 申请维修人员
+     */
+    @TableField("submit_by")
+    private Long submitBy;
+
+    /**
      * 维修状态
      */
     @TableField("status")
@@ -60,12 +72,6 @@ public class Repair implements Serializable {
      */
     @TableField("repair_done_time")
     private LocalDateTime repairDoneTime;
-
-    /**
-     * 申请维修人员
-     */
-    @TableField("submit_by")
-    private Long submitBy;
 
     /**
      * 维修人员
