@@ -91,5 +91,20 @@ public class Course implements Serializable {
     @TableField("modified_by")
     private Long modifiedBy;
 
+    /**
+     * 删除时间
+     */
+    @TableField("deleted_time")
+    private LocalDateTime deletedTime;
+
+    /**
+     * 删除者
+     */
+    @TableField("deleted_by")
+    private Long deletedBy;
+
+    @TableField("is_deleted")
+    private Boolean isDeleted;
+
 
 }

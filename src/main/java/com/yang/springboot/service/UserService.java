@@ -1,5 +1,6 @@
 package com.yang.springboot.service;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.yang.springboot.common.lang.Result;
 import com.yang.springboot.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
@@ -40,4 +41,6 @@ public interface UserService extends IService<User> {
     Result changeUserPassword(Long id, String password);
 
     Result register(RegisterParam registerParam);
+
+    List<Long> listUserIds(LambdaQueryWrapper<User> lambdaQueryWrapper);
 }

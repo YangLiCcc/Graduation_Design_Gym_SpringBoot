@@ -1,7 +1,9 @@
 package com.yang.springboot.service;
 
+import com.yang.springboot.common.lang.Result;
 import com.yang.springboot.entity.Course;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.yang.springboot.param.CourseParam;
 
 /**
  * <p>
@@ -13,4 +15,11 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface CourseService extends IService<Course> {
 
+    Result getCoursePage(Integer currentPage, Integer pageSize, String coachName);
+
+    Result insertCourse(CourseParam insertParam);
+
+    Result updateCourse(Course course);
+
+    Result deleteCourseById(Long id);
 }

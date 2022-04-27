@@ -31,10 +31,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -200,6 +197,24 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
         }
 
         return new Result(Constants.CODE_500, "注册失败!请稍后重试!", null);
+    }
+
+    /**
+     * 根据条件 获取用户ids
+     * 1. 传入查询条件 根据条件查询所有相关用户
+     * 2. 将查询到的用户的ids返回
+     * @param lambdaQueryWrapper 查询条件
+     * @return ids
+     */
+    @Override
+    public List<Long> listUserIds(LambdaQueryWrapper<User> lambdaQueryWrapper) {
+        List<User> userList = list(lambdaQueryWrapper);
+        List<Long> userIds = new ArrayList<>();
+        for (User user : userList) {
+            userIds.add(user.getId());
+        }
+
+        return userIds;
     }
 
     /**
